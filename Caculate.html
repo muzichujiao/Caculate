@@ -14,12 +14,12 @@
 		<input type = "text" value="0" id = "textbook"/>
 		<div class = "button">
 			<button onclick="operateCu(this)">%</button>
-			<button>√</button>
+			<button onclick="sqrtB()">√</button>
 			<button onclick = "operateCu(this)">1/x</button>
 			<button onclick="operateCu(this)">+</button>
-			<button>AC</button>
-			<button onclick="get(this)">C</button>
-			<button>←</button>
+			<button onclick="clearNow()">AC</button>
+			<button onclick="clearAll()">C</button>
+			<button onclick="del()">←</button>
 			<button onclick="operateCu(this)">-</button>
 			<button onclick="get(this)">9</button>
 			<button onclick="get(this)">8</button>
@@ -32,10 +32,10 @@
 			<button onclick="get(this)">3</button>
 			<button onclick="get(this)">2</button>
 			<button onclick="get(this)">1</button>
-			<button>±</button>
+			<button onclick="mines()">±</button>
 			<button id ="buttonZero" onclick="get(this)">0</button>
-			<button>.</button>
-			<button id = "buttonEquail" onclick="result(this)">=</button>
+			<button onclick="dot()">.</button>
+			<button id = "buttonEquail" onclick="result()">=</button>
 			
 			
 
