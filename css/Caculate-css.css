@@ -31,18 +31,20 @@ article,aside,dialog,footer,header,section,footer,nav,figure,menu{display:block;
 }
 .button{margin-top: 10px;}
 .main{
-	height: 455px;
+	height: 470px;
 	width: 360px;
 	padding: 10px;
 	margin-right: auto;
 	margin-left: auto;
 	border:1px solid #ccc;
+
 }
 .button button{
+	margin:1px;
 	float: left;
-	width: 90px;
+	width: 87px;
 	display: block;
 	height: 60px;
 	border:1px solid #ccc;
 }
-#buttonEquail{width: 180px;}
+#buttonEquail{width: 176px;}
