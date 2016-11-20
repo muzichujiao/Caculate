@@ -4,7 +4,6 @@ var second;
 var operate;
 var already = false;
 var memory = 0;
-
 function get(obj){
 	if(already == false && operate && first &&(!second)){
 		memory = 1;
@@ -12,11 +11,12 @@ function get(obj){
 	}
 	if(already == true){
 		document.getElementById("textbook").value = "0";
+		already = false;
 	}
 	if(document.getElementById("textbook").value == "0"){
 		document.getElementById("textbook").value = obj.innerHTML;
 	}else{
-		document.getElementById("textbook").value +=obj.innerHTML;
+		document.getElementById("textbook").value = document.getElementById("textbook").value+obj.innerHTML;
 	}
 	if(memory == 0){
 		first = document.getElementById("textbook").value;
@@ -25,6 +25,11 @@ function get(obj){
 	}
 }
 function operateCu (obj){
+	
+	if(memory == 1){
+		first = result();
+		memory = 0;
+	}
 	operate = obj.innerHTML;
 	if( operate == "1/x"){
 		if(!second){
@@ -32,6 +37,9 @@ function operateCu (obj){
 		}
 		first = 1 / (first - 0) + second;
 		textinput = document.getElementById("textbook");
+		if(first == "NAN" ||first == "defined" ||first == "undefined"){
+			first == "error";
+		}
 		textinput.value = first;
 		memory = 0;
 	}else{
@@ -42,13 +50,16 @@ function operateCu (obj){
 		already = false;
 	}
 }
-function result(obj){
+function result(){
 	if(operate == "+"){
 		if(!second){
 			second = first;
 		}
 		first = (first - 0) + (second - 0);
 		textinput = document.getElementById("textbook");
+		if(first == "NAN" ||first == "defined" ||first == "undefined"){
+			first == "error";
+		}
 		textinput.value = first; 
 		already = true;
 		memory = 0;	
@@ -59,6 +70,9 @@ function result(obj){
 		}
 		first = (first- 0) - (second - 0);
 		textinput = document.getElementById("textbook");
+		if(first == "NAN" ||first == "defined" ||first == "undefined"){
+			first == "error";
+		}
 		textinput.value = first;
 		already = true;
 		memory = 0;
@@ -69,6 +83,9 @@ function result(obj){
 		}
 		first = (first- 0) * (second - 0);
 		textinput = document.getElementById("textbook");
+		if(first == "NAN" ||first == "defined" ||first == "undefined"){
+			first == "error";
+		}
 		textinput.value = first;
 		already = true;
 		memory = 0;
@@ -80,7 +97,7 @@ function result(obj){
 		first = (first- 0) / (second - 0);
 		textinput = document.getElementById("textbook");
 		if(second == 0){
-			textinput.value = "除数不能为0";
+			textinput.value = "error";
 		}else{
 			textinput.value = first;
 		}
@@ -93,10 +110,14 @@ function result(obj){
 		}
 		first = (first- 0) % (second - 0);
 		textinput = document.getElementById("textbook");
+		if(first == "NAN" ||first == "defined" ||first == "undefined"){
+			first == "error";
+		}
 		textinput.value = first;
 		already = true;
 		memory = 0;
 	}
+	return first;
 }
  function dot(){ 
  	var str=String(document.getElementById("textbook").value);
@@ -114,10 +135,16 @@ function result(obj){
  } 
  function del(){ 
 	var str=String(document.getElementById("textbook").value); 
- 	str=(str!="0") ? str : ""; 
- 	str=str.substr(0,str.length-1); 
- 	str=(str!="") ? str : "0"; 
- 	document.getElementById("textbook").value=str; 
+	if(already == false){
+		str=(str!="0") ? str : ""; 
+ 		str=str.substr(0,str.length-1); 
+ 		if(str == "-"){
+ 			str = "0";
+ 		}else{
+ 			str=(str!="") ? str : "0"; 
+ 		}
+ 		document.getElementById("textbook").value=str; 
+	}
  } 
  function clearNow(){
  	document.getElementById("textbook").value="0"; 
@@ -148,4 +175,5 @@ function sqrtB() {
 	}else{
 		second = str;
 	}
+	already = true;
 }
