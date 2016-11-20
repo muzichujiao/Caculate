@@ -2,7 +2,7 @@ var textinput;
 var first;
 var second;
 var operate;
-var already = false
+var already = false;
 var memory = 0;
 
 function get(obj){
@@ -10,10 +10,6 @@ function get(obj){
 		memory = 1;
 		document.getElementById("textbook").value = 0;
 	}
-	/*if(afterCaculate == true && memory == 0){
-		document.getElementById("textbook").value = 0;
-		afterCaculate = false;
-	}*/
 	if(already == true){
 		document.getElementById("textbook").value = "0";
 	}
@@ -27,11 +23,7 @@ function get(obj){
 	}else{
 		second = document.getElementById("textbook").value;
 	}
-
-
 }
-
-
 function operateCu (obj){
 	operate = obj.innerHTML;
 	if( operate == "1/x"){
@@ -49,7 +41,6 @@ function operateCu (obj){
 		second = 0;
 		already = false;
 	}
-	
 }
 function result(obj){
 	if(operate == "+"){
@@ -60,8 +51,7 @@ function result(obj){
 		textinput = document.getElementById("textbook");
 		textinput.value = first; 
 		already = true;
-		memory = 0;
-		
+		memory = 0;	
 	}
 	if(operate == "-"){
 		if(!second){
@@ -94,7 +84,6 @@ function result(obj){
 		}else{
 			textinput.value = first;
 		}
-		
 		already = true;
 		memory = 0;
 	}
@@ -108,8 +97,6 @@ function result(obj){
 		already = true;
 		memory = 0;
 	}
-
-
 }
  function dot(){ 
  	var str=String(document.getElementById("textbook").value);
@@ -123,8 +110,7 @@ function result(obj){
 			return false; 
 		} 
 	str=str + "."; 
- 	document.getElementById("textbook").value=str; 
- 	
+ 	document.getElementById("textbook").value=str; 	
  } 
  function del(){ 
 	var str=String(document.getElementById("textbook").value); 

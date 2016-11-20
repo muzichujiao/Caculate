@@ -1,23 +1,13 @@
-body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,button,textarea,p,blockquote,th,td { margin:0; padding:0; }
+body,div,input,button,p, { margin:0; padding:0; }
 body { background:#fff;font-family: "Myriad Set Pro","Helvetica Neue","Helvetica","Arial",sans-serif; }
 h1, h2, h3, h4, h5, h6 { font-weight:normal; }
 a { color:#555; text-decoration:none; }
 img { border:none; }
 ol,ul,li { list-style:none; }
 html {overflow-y: scroll;} 
-.clearfix:after {content: "."; display: block; height:0; clear:both; visibility: hidden;}
-.clearfix { *zoom:1; }
-em{font-style:normal;}
 li{list-style:none;}
 img{border:0;vertical-align:middle;}
-table{border-collapse:collapse;border-spacing:0;}
 p{word-wrap:break-word;}
-ul{list-style: none;} 
-article,aside,dialog,footer,header,section,footer,nav,figure,menu{display:block;}
-.html {
-    quotes: "“" "”";
-    font-size: 112.5%;
-}
 .contain{
 	text-align: center;
 	width: 100%;
@@ -27,9 +17,17 @@ article,aside,dialog,footer,header,section,footer,nav,figure,menu{display:block;
 	display: block;
 	height: 80px;
 	width: 355px;
-
+	border:1px solid #98ece6;
+	font-size: 20px;
+	font-weight: 400;
 }
-.button{margin-top: 10px;}
+.button{
+	margin-top: 10px;height: 370px;
+	background-image: url(../images/pic5.jpg); opacity:0.7;
+	background-position: center;
+	background-size: 30%;
+	background-repeat: no-repeat;
+}
 .main{
 	height: 470px;
 	width: 360px;
@@ -37,14 +35,16 @@ article,aside,dialog,footer,header,section,footer,nav,figure,menu{display:block;
 	margin-right: auto;
 	margin-left: auto;
 	border:1px solid #ccc;
-
 }
 .button button{
+	background-color: rgba(0,0,0,0);
 	margin:1px;
 	float: left;
 	width: 87px;
 	display: block;
 	height: 60px;
-	border:1px solid #ccc;
+	border:1px solid #98ece6;
+	font-weight: 400;
+    font-size: 20px;
 }
 #buttonEquail{width: 176px;}
