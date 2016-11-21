@@ -37,8 +37,11 @@ function operateCu (obj){
 		}
 		first = 1 / (first - 0) + second;
 		textinput = document.getElementById("textbook");
-		if(first == "NAN" ||first == "defined" ||first == "undefined"){
-			first == "error";
+			if(isNaN(first)){
+			first = "error";
+		}
+		if(first == "defined" ||first == "undefined"){
+			first = "error";
 		}
 		textinput.value = first;
 		memory = 0;
@@ -57,8 +60,11 @@ function result(){
 		}
 		first = (first - 0) + (second - 0);
 		textinput = document.getElementById("textbook");
-		if(first == "NAN" ||first == "defined" ||first == "undefined"){
-			first == "error";
+			if(isNaN(first)){
+			first = "error";
+		}
+		if(first == "defined" ||first == "undefined"){
+			first = "error";
 		}
 		textinput.value = first; 
 		already = true;
@@ -70,8 +76,11 @@ function result(){
 		}
 		first = (first- 0) - (second - 0);
 		textinput = document.getElementById("textbook");
-		if(first == "NAN" ||first == "defined" ||first == "undefined"){
-			first == "error";
+			if(isNaN(first)){
+			first = "error";
+		}
+		if(first == "defined" ||first == "undefined"){
+			first = "error";
 		}
 		textinput.value = first;
 		already = true;
@@ -83,8 +92,11 @@ function result(){
 		}
 		first = (first- 0) * (second - 0);
 		textinput = document.getElementById("textbook");
-		if(first == "NAN" ||first == "defined" ||first == "undefined"){
-			first == "error";
+		if(isNaN(first)){
+			first = "error";
+		}
+		if(first == "defined" ||first == "undefined"){
+			first ="error";
 		}
 		textinput.value = first;
 		already = true;
@@ -110,8 +122,11 @@ function result(){
 		}
 		first = (first- 0) % (second - 0);
 		textinput = document.getElementById("textbook");
-		if(first == "NAN" ||first == "defined" ||first == "undefined"){
-			first == "error";
+		if(isNaN(first)){
+			first = "error";
+		}
+		if(first == "defined" ||first == "undefined"){
+			first = "error";
 		}
 		textinput.value = first;
 		already = true;
@@ -169,6 +184,10 @@ function result(){
 function sqrtB() {
 	var str = document.getElementById("textbook").value;
 	str = Math.sqrt(str);
+
+	if(isNaN(str)){
+			str = "error";
+		}
 	document.getElementById("textbook").value =str;
 	if(memory == 0){
 		first = str;
