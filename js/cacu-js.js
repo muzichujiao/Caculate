@@ -22,7 +22,7 @@ function caculate(containerID){
 	var operate;			//记录计算符
 	var already = false;	//记录是否计算过
 	var memory = 0;			//指向第一、二操作数
-	var op = 0;
+	 var op = 0;			//在输入.2*.1时，对第二操作数的变化,保留0.不清除
 
 
 	//获取一、二操作数
@@ -35,17 +35,17 @@ function caculate(containerID){
 		if(first == 0){
 			if((already == false) && operate &&(!second)){
 				memory = 1;
-					if(op == 0){
+					 if(op == 0){
 					textbook.value = 0;
-				}
+				 }
 			
 			}
 		}
 		if((already == false) && operate && first &&(!second)){
 			memory = 1;
-			if(op == 0){
+			 if(op == 0){
 				textbook.value = 0;
-			}
+			 }
 		}
 		if(textbook.value == "0"){
 			textbook.value = obj.innerHTML;
@@ -57,7 +57,7 @@ function caculate(containerID){
 		}else{
 			second = textbook.value;	
 		}
-		op = 0;
+		 op = 0;
 	}
 	//根号函数
 	function sqrtB() {
@@ -146,7 +146,7 @@ function caculate(containerID){
 			second = "0";
 			operate = "0";
 			memory = "0";
-			op = "0";
+		    op = "0";
 			i = 0;
 		}
 	}
@@ -220,7 +220,6 @@ function caculate(containerID){
 				second = first;
 			}
 			first = parseFloat((first- 0) + (second - 0));
-			// textinput = document.getElementById("textbook");
 			if(isNaN(first)){
 				first = "Error";
 			}
@@ -235,9 +234,7 @@ function caculate(containerID){
 			if(!second&&operate){
 				second = first;
 			}
-		
 			first =parseFloat((first- 0) * (second - 0));
-			// textinput = document.getElementById("textbook");
 			if(isNaN(first)){
 				first = "Error";
 			}
@@ -273,46 +270,45 @@ function caculate(containerID){
 		}
 		return first;
 	}
-
 	//创造button并排列
-	var button_1 = document.createElement("button");
-	button_1.innerHTML = "%";
-	mainButton.appendChild(button_1);
+	var button_remainder = document.createElement("button");
+	button_remainder.innerHTML = "%";
+	mainButton.appendChild(button_remainder);
 
-	var button_2 = document.createElement("button");
-	button_2.innerHTML = "√";
-	mainButton.appendChild(button_2);
-	button_2.onclick = function(){sqrtB()};
+	var button_sqrt = document.createElement("button");
+	button_sqrt.innerHTML = "√";
+	mainButton.appendChild(button_sqrt);
+	button_sqrt.onclick = function(){sqrtB()};
 
-	var button_3 = document.createElement("button");
-	button_3.innerHTML = "1/x";
-	mainButton.appendChild(button_3);
-	button_3.onclick = function(){derivative()}
+	var button_up = document.createElement("button");
+	button_up.innerHTML = "1/x";
+	mainButton.appendChild(button_up);
+	button_up.onclick = function(){derivative()}
 
-	var button_4 = document.createElement("button");
-	button_4.innerHTML = "x^2";
-	mainButton.appendChild(button_4);
+	var button_square = document.createElement("button");
+	button_square.innerHTML = "x^2";
+	mainButton.appendChild(button_square);
 
-	var button_5 = document.createElement("button");
-	button_5.innerHTML = "CE";
-	mainButton.appendChild(button_5);
-	button_5.onclick = function(){clearNow()};
+	var button_CE = document.createElement("button");
+	button_CE.innerHTML = "CE";
+	mainButton.appendChild(button_CE);
+	button_CE.onclick = function(){clearNow()};
 
-	var button_6 = document.createElement("button");
-	button_6.innerHTML = "C";
-	mainButton.appendChild(button_6);
-	button_6.onclick = function(){clearAll()};
+	var button_C = document.createElement("button");
+	button_C.innerHTML = "C";
+	mainButton.appendChild(button_C);
+	button_C.onclick = function(){clearAll()};
 
 
-	var button_7 = document.createElement("button");
-	button_7.innerHTML = "←";
-	mainButton.appendChild(button_7);
-	button_7.onclick = function(){del()};
+	var button_back = document.createElement("button");
+	button_back.innerHTML = "←";
+	mainButton.appendChild(button_back);
+	button_back.onclick = function(){del()};
 
-	var button_8 = document.createElement("button");
-	button_8.innerHTML = "+";
-	mainButton.appendChild(button_8);
-	button_8.onclick = function(){operateCu(this)};
+	var button_add = document.createElement("button");
+	button_add.innerHTML = "+";
+	mainButton.appendChild(button_add);
+	button_add.onclick = function(){operateCu(this)};
 	var i;
 	
 	for(i=0 ; i<3 ; i++){ // 创造四个button
@@ -322,10 +318,10 @@ function caculate(containerID){
 		button.onclick = function(){get(this)};//获得<button>里的值
 	}
 	
-	var button_9 = document.createElement("button");
-	button_9.innerHTML = opera[0];
-	mainButton.appendChild(button_9);
-	button_9.onclick = function(){operateCu(this)};//获得<button>里的值
+	var button_min = document.createElement("button");
+	button_min.innerHTML = "-";
+	mainButton.appendChild(button_min);
+	button_min.onclick = function(){operateCu(this)};//获得<button>里的值
 	
 	for(i; i<6 ;i++){
 		var button = document.createElement("button");
@@ -334,10 +330,10 @@ function caculate(containerID){
 		button.onclick = function(){get(this)};//获得<button>里的值
 	}
 	
-	var button_13 = document.createElement("button");
-	button_13.innerHTML = opera[1];
-	mainButton.appendChild(button_13);
-	button_13.onclick = function(){operateCu(this)};//获得<button>里的值
+	var button_mul = document.createElement("button");
+	button_mul.innerHTML = "*";
+	mainButton.appendChild(button_mul);
+	button_mul.onclick = function(){operateCu(this)};//获得<button>里的值
 	
 	for(i; i<9 ;i++){
 		var button = document.createElement("button");
@@ -346,30 +342,30 @@ function caculate(containerID){
 		button.onclick = function(){get(this)};//获得<button>里的值
 	}
 	
-	var button_10 = document.createElement("button");
-	button_10.innerHTML = opera[2];
-	mainButton.appendChild(button_10);
-	button_10.onclick = function(){operateCu(this)};//获得<button>里的值
+	var button_divide = document.createElement("button");
+	button_divide.innerHTML = "/";
+	mainButton.appendChild(button_divide);
+	button_divide.onclick = function(){operateCu(this)};//获得<button>里的值
 
-	var button_11 = document.createElement("button");
-	button_11.innerHTML = "±";
-	mainButton.appendChild(button_11);
-	button_11.onclick = function(){mines()};//获得<button>里的值
+	var button_minus = document.createElement("button");
+	button_minus.innerHTML = "±";
+	mainButton.appendChild(button_minus);
+	button_minus.onclick = function(){mines()};//获得<button>里的值
 
-	var button_12 = document.createElement("button");
-	button_12.innerHTML = "0";
-	mainButton.appendChild(button_12);
-	button_12.onclick = function(){get(this)};//获得<button>里的值
+	var button_zero = document.createElement("button");
+	button_zero.innerHTML = "0";
+	mainButton.appendChild(button_zero);
+	button_zero.onclick = function(){get(this)};//获得<button>里的值
 
-	var button_13 = document.createElement("button");
-	button_13.innerHTML = ".";
-	mainButton.appendChild(button_13);
-	button_13.onclick = function(){dotA()};//获得<button>里的值
+	var button_dot = document.createElement("button");
+	button_dot.innerHTML = ".";
+	mainButton.appendChild(button_dot);
+	button_dot.onclick = function(){dotA()};//获得<button>里的值
 	
-	var button_14 = document.createElement("button");
-	button_14.innerHTML = "=";
-	mainButton.appendChild(button_14);
-	button_14.onclick = function(){result()};//获得<button>里的值
+	var button_equal = document.createElement("button");
+	button_equal.innerHTML = "=";
+	mainButton.appendChild(button_equal);
+	button_equal.onclick = function(){result()};//获得<button>里的值
 }
 caculate("cacul");
 
