@@ -1,0 +1,33 @@
+
+.iinput{
+	display: block;
+    height: 80px;
+    width: 355px;
+    border: 1px solid #98ece6;
+    font-size: 20px;
+    font-weight: 400;
+}
+.colmain{
+	height: 470px;
+    width: 360px;
+    padding: 10px;
+    margin-right: auto;
+    margin-left: auto;
+    border: 1px solid #ccc;height: 470px;
+
+}
+.buttonset{
+	margin-top: 10px;
+    height: 370px;
+}
+button{
+	background-color: rgba(0,0,0,0);
+    margin: 1px;
+    float: left;
+    width: 87px;
+    display: block;
+    height: 60px;
+    border: 1px solid #98ece6;
+    font-weight: 400;
+    font-size: 20px;
+}
